@@ -1,0 +1,793 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0E14EED10B9D248A92175D11 /* Pods_CalPolyAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E619F94A8639A136FE509A24 /* Pods_CalPolyAppUITests.framework */; };
+		21F2B7F91E62828100B10E27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F2B7F81E62828100B10E27 /* AppDelegate.swift */; };
+		21F2B7FE1E62828100B10E27 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21F2B7FC1E62828100B10E27 /* Main.storyboard */; };
+		21F2B8011E62828100B10E27 /* CalPolyApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 21F2B7FF1E62828100B10E27 /* CalPolyApp.xcdatamodeld */; };
+		21F2B8031E62828100B10E27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21F2B8021E62828100B10E27 /* Assets.xcassets */; };
+		21F2B8061E62828100B10E27 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21F2B8041E62828100B10E27 /* LaunchScreen.storyboard */; };
+		21F2B8111E62828200B10E27 /* CalPolyAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F2B8101E62828200B10E27 /* CalPolyAppTests.swift */; };
+		21F2B81C1E62828200B10E27 /* CalPolyAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F2B81B1E62828200B10E27 /* CalPolyAppUITests.swift */; };
+		21F2B82C1E628AC800B10E27 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F2B82B1E628AC800B10E27 /* LoginViewController.swift */; };
+		21F2B82E1E62AE6000B10E27 /* AddClassesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F2B82D1E62AE6000B10E27 /* AddClassesViewController.swift */; };
+		21F2B8301E62B08E00B10E27 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21F2B82F1E62B08E00B10E27 /* GoogleService-Info.plist */; };
+		21F2B8351E62CFE400B10E27 /* ClassItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F2B8341E62CFE400B10E27 /* ClassItem.swift */; };
+		511E7ED061CBD5CC386F1F28 /* Pods_CalPolyAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 505387A1332D2167318015B5 /* Pods_CalPolyAppTests.framework */; };
+		6F830835A5219BCEDF68B310 /* Pods_CalPolyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0BCE3B923DC0F7E5F927D78 /* Pods_CalPolyApp.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		21F2B80D1E62828200B10E27 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21F2B7ED1E62828100B10E27 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 21F2B7F41E62828100B10E27;
+			remoteInfo = CalPolyApp;
+		};
+		21F2B8181E62828200B10E27 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21F2B7ED1E62828100B10E27 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 21F2B7F41E62828100B10E27;
+			remoteInfo = CalPolyApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		21F2B7F51E62828100B10E27 /* CalPolyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalPolyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		21F2B7F81E62828100B10E27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		21F2B7FD1E62828100B10E27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		21F2B8001E62828100B10E27 /* CalPolyApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CalPolyApp.xcdatamodel; sourceTree = "<group>"; };
+		21F2B8021E62828100B10E27 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		21F2B8051E62828100B10E27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		21F2B8071E62828100B10E27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21F2B80C1E62828200B10E27 /* CalPolyAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalPolyAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		21F2B8101E62828200B10E27 /* CalPolyAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalPolyAppTests.swift; sourceTree = "<group>"; };
+		21F2B8121E62828200B10E27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21F2B8171E62828200B10E27 /* CalPolyAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalPolyAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		21F2B81B1E62828200B10E27 /* CalPolyAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalPolyAppUITests.swift; sourceTree = "<group>"; };
+		21F2B81D1E62828200B10E27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21F2B82B1E628AC800B10E27 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Controllers/LoginViewController.swift; sourceTree = "<group>"; };
+		21F2B82D1E62AE6000B10E27 /* AddClassesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddClassesViewController.swift; path = Controllers/AddClassesViewController.swift; sourceTree = "<group>"; };
+		21F2B82F1E62B08E00B10E27 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		21F2B8311E62B27600B10E27 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
+		21F2B8321E62B4F700B10E27 /* CalPolyApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CalPolyApp.entitlements; sourceTree = "<group>"; };
+		21F2B8341E62CFE400B10E27 /* ClassItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClassItem.swift; path = Models/ClassItem.swift; sourceTree = "<group>"; };
+		4F98361748FB84EB5A2A769C /* Pods-CalPolyAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalPolyAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CalPolyAppUITests/Pods-CalPolyAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		505387A1332D2167318015B5 /* Pods_CalPolyAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalPolyAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		78765978E79073500B63D6F8 /* Pods-CalPolyApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalPolyApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-CalPolyApp/Pods-CalPolyApp.release.xcconfig"; sourceTree = "<group>"; };
+		7D9DC70D4B683BBDA68A1CE1 /* Pods-CalPolyAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalPolyAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CalPolyAppTests/Pods-CalPolyAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		9CC4ECB7E06F6CBACEF0DD04 /* Pods-CalPolyAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalPolyAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CalPolyAppTests/Pods-CalPolyAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BED8874872EB0EBCE49641BC /* Pods-CalPolyApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalPolyApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CalPolyApp/Pods-CalPolyApp.debug.xcconfig"; sourceTree = "<group>"; };
+		D0BCE3B923DC0F7E5F927D78 /* Pods_CalPolyApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalPolyApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E619F94A8639A136FE509A24 /* Pods_CalPolyAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalPolyAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F97EF677FA84246D19242420 /* Pods-CalPolyAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalPolyAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CalPolyAppUITests/Pods-CalPolyAppUITests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		21F2B7F21E62828100B10E27 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6F830835A5219BCEDF68B310 /* Pods_CalPolyApp.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21F2B8091E62828200B10E27 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				511E7ED061CBD5CC386F1F28 /* Pods_CalPolyAppTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21F2B8141E62828200B10E27 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0E14EED10B9D248A92175D11 /* Pods_CalPolyAppUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		21F2B7EC1E62828100B10E27 = {
+			isa = PBXGroup;
+			children = (
+				21F2B7F71E62828100B10E27 /* CalPolyApp */,
+				21F2B80F1E62828200B10E27 /* CalPolyAppTests */,
+				21F2B81A1E62828200B10E27 /* CalPolyAppUITests */,
+				21F2B7F61E62828100B10E27 /* Products */,
+				62ABAC9A26F9AC52D258F99E /* Pods */,
+				4F8D047CFA321AF94D92B4AD /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		21F2B7F61E62828100B10E27 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				21F2B7F51E62828100B10E27 /* CalPolyApp.app */,
+				21F2B80C1E62828200B10E27 /* CalPolyAppTests.xctest */,
+				21F2B8171E62828200B10E27 /* CalPolyAppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		21F2B7F71E62828100B10E27 /* CalPolyApp */ = {
+			isa = PBXGroup;
+			children = (
+				21F2B8331E62CFB900B10E27 /* Models */,
+				21F2B8321E62B4F700B10E27 /* CalPolyApp.entitlements */,
+				21F2B7F81E62828100B10E27 /* AppDelegate.swift */,
+				21F2B82F1E62B08E00B10E27 /* GoogleService-Info.plist */,
+				21F2B82A1E62885800B10E27 /* Controllers */,
+				21F2B8291E62884500B10E27 /* Views */,
+				21F2B8021E62828100B10E27 /* Assets.xcassets */,
+				21F2B8041E62828100B10E27 /* LaunchScreen.storyboard */,
+				21F2B8071E62828100B10E27 /* Info.plist */,
+				21F2B7FF1E62828100B10E27 /* CalPolyApp.xcdatamodeld */,
+				21F2B8311E62B27600B10E27 /* BridgingHeader.h */,
+			);
+			path = CalPolyApp;
+			sourceTree = "<group>";
+		};
+		21F2B80F1E62828200B10E27 /* CalPolyAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				21F2B8101E62828200B10E27 /* CalPolyAppTests.swift */,
+				21F2B8121E62828200B10E27 /* Info.plist */,
+			);
+			path = CalPolyAppTests;
+			sourceTree = "<group>";
+		};
+		21F2B81A1E62828200B10E27 /* CalPolyAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				21F2B81B1E62828200B10E27 /* CalPolyAppUITests.swift */,
+				21F2B81D1E62828200B10E27 /* Info.plist */,
+			);
+			path = CalPolyAppUITests;
+			sourceTree = "<group>";
+		};
+		21F2B8291E62884500B10E27 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				21F2B7FC1E62828100B10E27 /* Main.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		21F2B82A1E62885800B10E27 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				21F2B82D1E62AE6000B10E27 /* AddClassesViewController.swift */,
+				21F2B82B1E628AC800B10E27 /* LoginViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		21F2B8331E62CFB900B10E27 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				21F2B8341E62CFE400B10E27 /* ClassItem.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		4F8D047CFA321AF94D92B4AD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D0BCE3B923DC0F7E5F927D78 /* Pods_CalPolyApp.framework */,
+				505387A1332D2167318015B5 /* Pods_CalPolyAppTests.framework */,
+				E619F94A8639A136FE509A24 /* Pods_CalPolyAppUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		62ABAC9A26F9AC52D258F99E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BED8874872EB0EBCE49641BC /* Pods-CalPolyApp.debug.xcconfig */,
+				78765978E79073500B63D6F8 /* Pods-CalPolyApp.release.xcconfig */,
+				9CC4ECB7E06F6CBACEF0DD04 /* Pods-CalPolyAppTests.debug.xcconfig */,
+				7D9DC70D4B683BBDA68A1CE1 /* Pods-CalPolyAppTests.release.xcconfig */,
+				4F98361748FB84EB5A2A769C /* Pods-CalPolyAppUITests.debug.xcconfig */,
+				F97EF677FA84246D19242420 /* Pods-CalPolyAppUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		21F2B7F41E62828100B10E27 /* CalPolyApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 21F2B8201E62828200B10E27 /* Build configuration list for PBXNativeTarget "CalPolyApp" */;
+			buildPhases = (
+				B786B506D9DE7ED108BBAD44 /* [CP] Check Pods Manifest.lock */,
+				21F2B7F11E62828100B10E27 /* Sources */,
+				21F2B7F21E62828100B10E27 /* Frameworks */,
+				21F2B7F31E62828100B10E27 /* Resources */,
+				C40A3B226F492BFC87E52EBE /* [CP] Embed Pods Frameworks */,
+				D751F2934E0CA1F4637BCA53 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CalPolyApp;
+			productName = CalPolyApp;
+			productReference = 21F2B7F51E62828100B10E27 /* CalPolyApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		21F2B80B1E62828200B10E27 /* CalPolyAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 21F2B8231E62828200B10E27 /* Build configuration list for PBXNativeTarget "CalPolyAppTests" */;
+			buildPhases = (
+				C1EC1A21C3CA14B28A1262B5 /* [CP] Check Pods Manifest.lock */,
+				21F2B8081E62828200B10E27 /* Sources */,
+				21F2B8091E62828200B10E27 /* Frameworks */,
+				21F2B80A1E62828200B10E27 /* Resources */,
+				E85FF6A8AECF8B6587870166 /* [CP] Embed Pods Frameworks */,
+				A11C2363D4525CC8A4BD89A0 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				21F2B80E1E62828200B10E27 /* PBXTargetDependency */,
+			);
+			name = CalPolyAppTests;
+			productName = CalPolyAppTests;
+			productReference = 21F2B80C1E62828200B10E27 /* CalPolyAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		21F2B8161E62828200B10E27 /* CalPolyAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 21F2B8261E62828200B10E27 /* Build configuration list for PBXNativeTarget "CalPolyAppUITests" */;
+			buildPhases = (
+				601F1F645ED92402E754AF10 /* [CP] Check Pods Manifest.lock */,
+				21F2B8131E62828200B10E27 /* Sources */,
+				21F2B8141E62828200B10E27 /* Frameworks */,
+				21F2B8151E62828200B10E27 /* Resources */,
+				689439B53FD4FB23F53424B0 /* [CP] Embed Pods Frameworks */,
+				41D4E3CA00D9FDC98AC74533 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				21F2B8191E62828200B10E27 /* PBXTargetDependency */,
+			);
+			name = CalPolyAppUITests;
+			productName = CalPolyAppUITests;
+			productReference = 21F2B8171E62828200B10E27 /* CalPolyAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		21F2B7ED1E62828100B10E27 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Waylin Wang";
+				TargetAttributes = {
+					21F2B7F41E62828100B10E27 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = H8C692SL94;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
+					};
+					21F2B80B1E62828200B10E27 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 21F2B7F41E62828100B10E27;
+					};
+					21F2B8161E62828200B10E27 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 21F2B7F41E62828100B10E27;
+					};
+				};
+			};
+			buildConfigurationList = 21F2B7F01E62828100B10E27 /* Build configuration list for PBXProject "CalPolyApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 21F2B7EC1E62828100B10E27;
+			productRefGroup = 21F2B7F61E62828100B10E27 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				21F2B7F41E62828100B10E27 /* CalPolyApp */,
+				21F2B80B1E62828200B10E27 /* CalPolyAppTests */,
+				21F2B8161E62828200B10E27 /* CalPolyAppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		21F2B7F31E62828100B10E27 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21F2B8061E62828100B10E27 /* LaunchScreen.storyboard in Resources */,
+				21F2B8301E62B08E00B10E27 /* GoogleService-Info.plist in Resources */,
+				21F2B8031E62828100B10E27 /* Assets.xcassets in Resources */,
+				21F2B7FE1E62828100B10E27 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21F2B80A1E62828200B10E27 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21F2B8151E62828200B10E27 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		41D4E3CA00D9FDC98AC74533 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CalPolyAppUITests/Pods-CalPolyAppUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		601F1F645ED92402E754AF10 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		689439B53FD4FB23F53424B0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CalPolyAppUITests/Pods-CalPolyAppUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A11C2363D4525CC8A4BD89A0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CalPolyAppTests/Pods-CalPolyAppTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B786B506D9DE7ED108BBAD44 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C1EC1A21C3CA14B28A1262B5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C40A3B226F492BFC87E52EBE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CalPolyApp/Pods-CalPolyApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D751F2934E0CA1F4637BCA53 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CalPolyApp/Pods-CalPolyApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E85FF6A8AECF8B6587870166 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CalPolyAppTests/Pods-CalPolyAppTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		21F2B7F11E62828100B10E27 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21F2B82C1E628AC800B10E27 /* LoginViewController.swift in Sources */,
+				21F2B7F91E62828100B10E27 /* AppDelegate.swift in Sources */,
+				21F2B8011E62828100B10E27 /* CalPolyApp.xcdatamodeld in Sources */,
+				21F2B82E1E62AE6000B10E27 /* AddClassesViewController.swift in Sources */,
+				21F2B8351E62CFE400B10E27 /* ClassItem.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21F2B8081E62828200B10E27 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21F2B8111E62828200B10E27 /* CalPolyAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21F2B8131E62828200B10E27 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21F2B81C1E62828200B10E27 /* CalPolyAppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		21F2B80E1E62828200B10E27 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 21F2B7F41E62828100B10E27 /* CalPolyApp */;
+			targetProxy = 21F2B80D1E62828200B10E27 /* PBXContainerItemProxy */;
+		};
+		21F2B8191E62828200B10E27 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 21F2B7F41E62828100B10E27 /* CalPolyApp */;
+			targetProxy = 21F2B8181E62828200B10E27 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		21F2B7FC1E62828100B10E27 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				21F2B7FD1E62828100B10E27 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		21F2B8041E62828100B10E27 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				21F2B8051E62828100B10E27 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		21F2B81E1E62828200B10E27 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		21F2B81F1E62828200B10E27 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		21F2B8211E62828200B10E27 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BED8874872EB0EBCE49641BC /* Pods-CalPolyApp.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CalPolyApp/CalPolyApp.entitlements;
+				DEVELOPMENT_TEAM = H8C692SL94;
+				INFOPLIST_FILE = CalPolyApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cp.CalPolyApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = CalPolyApp/BridgingHeader.h;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		21F2B8221E62828200B10E27 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 78765978E79073500B63D6F8 /* Pods-CalPolyApp.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CalPolyApp/CalPolyApp.entitlements;
+				DEVELOPMENT_TEAM = H8C692SL94;
+				INFOPLIST_FILE = CalPolyApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cp.CalPolyApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = CalPolyApp/BridgingHeader.h;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		21F2B8241E62828200B10E27 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9CC4ECB7E06F6CBACEF0DD04 /* Pods-CalPolyAppTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = CalPolyAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cp.CalPolyAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CalPolyApp.app/CalPolyApp";
+			};
+			name = Debug;
+		};
+		21F2B8251E62828200B10E27 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7D9DC70D4B683BBDA68A1CE1 /* Pods-CalPolyAppTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = CalPolyAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cp.CalPolyAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CalPolyApp.app/CalPolyApp";
+			};
+			name = Release;
+		};
+		21F2B8271E62828200B10E27 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4F98361748FB84EB5A2A769C /* Pods-CalPolyAppUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = CalPolyAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cp.CalPolyAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = CalPolyApp;
+			};
+			name = Debug;
+		};
+		21F2B8281E62828200B10E27 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F97EF677FA84246D19242420 /* Pods-CalPolyAppUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = CalPolyAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cp.CalPolyAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = CalPolyApp;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		21F2B7F01E62828100B10E27 /* Build configuration list for PBXProject "CalPolyApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				21F2B81E1E62828200B10E27 /* Debug */,
+				21F2B81F1E62828200B10E27 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		21F2B8201E62828200B10E27 /* Build configuration list for PBXNativeTarget "CalPolyApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				21F2B8211E62828200B10E27 /* Debug */,
+				21F2B8221E62828200B10E27 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		21F2B8231E62828200B10E27 /* Build configuration list for PBXNativeTarget "CalPolyAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				21F2B8241E62828200B10E27 /* Debug */,
+				21F2B8251E62828200B10E27 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		21F2B8261E62828200B10E27 /* Build configuration list for PBXNativeTarget "CalPolyAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				21F2B8271E62828200B10E27 /* Debug */,
+				21F2B8281E62828200B10E27 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		21F2B7FF1E62828100B10E27 /* CalPolyApp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				21F2B8001E62828100B10E27 /* CalPolyApp.xcdatamodel */,
+			);
+			currentVersion = 21F2B8001E62828100B10E27 /* CalPolyApp.xcdatamodel */;
+			path = CalPolyApp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 21F2B7ED1E62828100B10E27 /* Project object */;
+}

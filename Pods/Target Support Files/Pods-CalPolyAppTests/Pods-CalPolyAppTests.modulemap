@@ -1,0 +1,6 @@
+framework module Pods_CalPolyAppTests {
+  umbrella header "Pods-CalPolyAppTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
