@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 class AddClassesViewController: UIViewController, UIPickerViewDataSource,
-UIPickerViewDelegate {
+UIPickerViewDelegate, UITableViewDataSource, UITableViewDelegate {
 
    @IBOutlet weak var classSelector: UIPickerView!
    @IBOutlet weak var SectionSelector: UITableView!
@@ -21,11 +21,14 @@ UIPickerViewDelegate {
                ["-"]]
    var AllClassList : [String : [ClassItem]] = [:]
    var deptSelected = ""
+   var AllSectionsForClass : [ClassItem] = []
    
     override func viewDidLoad() {
         super.viewDidLoad()
       self.classSelector.delegate = self
       self.classSelector.dataSource = self
+      self.SectionSelector.dataSource = self
+      self.SectionSelector.delegate = self
       
       ref.queryOrdered(byChild: "Dept").observe(.value, with : {snapshot in
          for item in snapshot.children {
@@ -66,11 +69,35 @@ UIPickerViewDelegate {
             courseList.insert(course.Class)
          }
          myDB[1] = Array(courseList.sorted())
-         deptSelected = myDB[component][row]
+         deptSelected = myDB[component][row] as String
+         deptSelected = deptSelected.replacingOccurrences(of: "\"", with: "")
          self.classSelector.reloadAllComponents()
       }
       else {
-         
+         let AllClassesForMajor : [ClassItem] = AllClassList[deptSelected]!
+         let courseSelected : String = myDB[component][row]
+         AllSectionsForClass = []
+         for temp_class in AllClassesForMajor {
+            if temp_class.Class == courseSelected {
+               AllSectionsForClass.append(temp_class)
+            }
+         }
+         SectionSelector.reloadData()
       }
+   }
+   
+   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+      return AllSectionsForClass.count
+   }
+   
+   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+      let cell = UITableViewCell(style: UITableViewCellStyle.default,
+                                 reuseIdentifier: "td")
+      let classItem = AllSectionsForClass[indexPath.row]
+      
+      cell.textLabel?.text = "Section: " + classItem.section + "\t" + classItem.instructor
+      cell.detailTextLabel?.text = classItem.time
+      
+      return cell
    }
 }
