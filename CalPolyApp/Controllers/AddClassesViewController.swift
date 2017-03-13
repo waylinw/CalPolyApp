@@ -21,7 +21,12 @@ UIPickerViewDelegate, UITableViewDataSource, UITableViewDelegate {
                ["-"]]
    var AllClassList : [String : [ClassItem]] = [:]
    var deptSelected = ""
+   var curCourseSelected = ""
    var AllSectionsForClass : [ClassItem] = []
+   
+   var toAddFB = [String]()
+   
+   
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,6 +81,7 @@ UIPickerViewDelegate, UITableViewDataSource, UITableViewDelegate {
       else {
          let AllClassesForMajor : [ClassItem] = AllClassList[deptSelected]!
          let courseSelected : String = myDB[component][row]
+         curCourseSelected = courseSelected
          AllSectionsForClass = []
          for temp_class in AllClassesForMajor {
             if temp_class.Class == courseSelected {
@@ -94,11 +100,45 @@ UIPickerViewDelegate, UITableViewDataSource, UITableViewDelegate {
       let cell = UITableViewCell(style: .value1, reuseIdentifier: "td")
       let classItem = AllSectionsForClass[indexPath.row]
       
+      let checkdup = deptSelected + " " + curCourseSelected + " " + classItem.section
+      if toAddFB.contains(checkdup) {
+         cell.backgroundColor = UIColor(red: 218/255.0, green: 218/255.0, blue: 218/255.0, alpha: 1.0)
+      }
+      
       cell.textLabel?.font = UIFont(name: (cell.textLabel?.font.fontName)!, size: 11)
-      cell.detailTextLabel?.font = UIFont(name: (cell.detailTextLabel?.font.fontName)!, size: 11)
-      cell.textLabel?.text = "Section: " + classItem.section + "\t" + classItem.instructor
-      cell.detailTextLabel?.text = classItem.time
+      //cell.detailTextLabel?.font = UIFont(name: (cell.detailTextLabel?.font.fontName)!, size: 11) // switch maybe if desired
+      cell.textLabel?.text = "Section: " + classItem.section + "     " + classItem.instructor + "     " + classItem.time
+      //cell.detailTextLabel?.text = classItem.time // switch maybe if desired
       
       return cell
+   }
+   
+   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+      guard let cell = tableView.cellForRow(at: indexPath) else { return }
+      let sectionItem = cell.textLabel?.text?.components(separatedBy: " ")[1]
+      let toInsert = deptSelected + " " + curCourseSelected + " " + sectionItem!
+      
+      if cell.backgroundColor  == UIColor(red: 218/255.0, green: 218/255.0, blue: 218/255.0, alpha: 1.0) {
+         cell.backgroundColor = .white
+         toAddFB = toAddFB.filter(){$0 != toInsert}
+      }
+      
+      else {
+         cell.backgroundColor = UIColor(red: 218/255.0, green: 218/255.0, blue: 218/255.0, alpha: 1.0)
+         toAddFB.append(toInsert)
+      }
+   }
+   
+   @IBAction func addAction() {
+      let ref = FIRDatabase.database().reference(withPath: "User_Courses")
+      let classRef = ref.child(FIRAuth.auth()!.currentUser!.uid)
+      
+      classRef.setValue(toAnyObject())
+   }
+   
+   func toAnyObject() -> Any {
+         return [
+            "Courses": toAddFB
+         ]
    }
 }
