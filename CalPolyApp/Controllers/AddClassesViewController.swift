@@ -91,10 +91,11 @@ UIPickerViewDelegate, UITableViewDataSource, UITableViewDelegate {
    }
    
    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-      let cell = UITableViewCell(style: UITableViewCellStyle.default,
-                                 reuseIdentifier: "td")
+      let cell = UITableViewCell(style: .value1, reuseIdentifier: "td")
       let classItem = AllSectionsForClass[indexPath.row]
       
+      cell.textLabel?.font = UIFont(name: (cell.textLabel?.font.fontName)!, size: 11)
+      cell.detailTextLabel?.font = UIFont(name: (cell.detailTextLabel?.font.fontName)!, size: 11)
       cell.textLabel?.text = "Section: " + classItem.section + "\t" + classItem.instructor
       cell.detailTextLabel?.text = classItem.time
       
