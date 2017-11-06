@@ -17,15 +17,25 @@ class LoginViewController: UIViewController {
    let firstTimeLogin = "firstTimeSetup"
    let overview = "overview"
    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+   override func viewDidLoad() {
+      super.viewDidLoad()
       FIRAuth.auth()!.addStateDidChangeListener() { auth, user in
-         if user != nil {
-            self.performSegue(withIdentifier: self.firstTimeLogin, sender: nil)
+         if let user = user {
+            FIRDatabase.database().reference(withPath: "User_Courses")
+               .observeSingleEvent(of: .value, with:
+                  {
+                     snapshot in
+                     if snapshot.hasChild(user.uid) {
+                        self.performSegue(withIdentifier: self.overview, sender: nil)
+                     }
+                     else {
+                        self.performSegue(withIdentifier: self.firstTimeLogin, sender: nil)
+                     }
+               })
          }
+         //no user signed in
       }
-        // Do any additional setup after loading the view.
-    }
+   }
    
    @IBAction func loginTouched(_ sender: UIButton) {
       FIRAuth.auth()!.signIn(withEmail: textFieldLoginEmail.text!, password: textFieldLoginPassword.text!)

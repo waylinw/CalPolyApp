@@ -26,7 +26,7 @@ UIPickerViewDelegate, UITableViewDataSource, UITableViewDelegate {
    
    var toAddFB = [String]()
    
-   
+   let overview = "overview"
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,19 +51,24 @@ UIPickerViewDelegate, UITableViewDataSource, UITableViewDelegate {
    }
    
    @IBAction func signoutTouched(_ sender: UIButton) {
-      dismiss(animated: true, completion: nil)
+      try! FIRAuth.auth()!.signOut()
+      if let storyboard = self.storyboard {
+         let vc = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! CalPolyApp.LoginViewController
+         self.present(vc, animated: true, completion: nil)
+      }
    }
    
    func numberOfComponents(in pickerView: UIPickerView) -> Int {
       return myDB.count
    }
    
-   func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+   func pickerView(_ pickerView: UIPickerView,
+                   numberOfRowsInComponent component: Int) -> Int {
       return myDB[component].count
    }
    
    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-      return myDB[component][row] as! String
+      return myDB[component][row]
    }
    
    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
@@ -106,9 +111,7 @@ UIPickerViewDelegate, UITableViewDataSource, UITableViewDelegate {
       }
       
       cell.textLabel?.font = UIFont(name: (cell.textLabel?.font.fontName)!, size: 11)
-      //cell.detailTextLabel?.font = UIFont(name: (cell.detailTextLabel?.font.fontName)!, size: 11) // switch maybe if desired
       cell.textLabel?.text = "Section: " + classItem.section + "     " + classItem.instructor + "     " + classItem.time
-      //cell.detailTextLabel?.text = classItem.time // switch maybe if desired
       
       return cell
    }
@@ -122,7 +125,6 @@ UIPickerViewDelegate, UITableViewDataSource, UITableViewDelegate {
          cell.backgroundColor = .white
          toAddFB = toAddFB.filter(){$0 != toInsert}
       }
-      
       else {
          cell.backgroundColor = UIColor(red: 218/255.0, green: 218/255.0, blue: 218/255.0, alpha: 1.0)
          toAddFB.append(toInsert)
@@ -134,6 +136,8 @@ UIPickerViewDelegate, UITableViewDataSource, UITableViewDelegate {
       let classRef = ref.child(FIRAuth.auth()!.currentUser!.uid)
       
       classRef.setValue(toAnyObject())
+      
+      self.performSegue(withIdentifier: self.overview, sender: nil)
    }
    
    func toAnyObject() -> Any {
