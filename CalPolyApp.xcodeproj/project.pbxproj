@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0E14EED10B9D248A92175D11 /* Pods_CalPolyAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E619F94A8639A136FE509A24 /* Pods_CalPolyAppUITests.framework */; };
+		2130A0291FB49054006E054E /* ControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2130A0281FB49054006E054E /* ControllerExtensions.swift */; };
 		215A93051F9DD863005E32AA /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215A93041F9DD863005E32AA /* Note.swift */; };
+		2189940C1FB464310017B5D9 /* AddEventForClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2189940B1FB464310017B5D9 /* AddEventForClass.swift */; };
 		219818421FB0462900CDC8A9 /* EventsForSingleClassController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219818411FB0462900CDC8A9 /* EventsForSingleClassController.swift */; };
 		219818441FB0464200CDC8A9 /* OverviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219818431FB0464200CDC8A9 /* OverviewController.swift */; };
 		21F2B7F91E62828100B10E27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F2B7F81E62828100B10E27 /* AppDelegate.swift */; };
@@ -45,7 +47,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2130A0281FB49054006E054E /* ControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerExtensions.swift; sourceTree = "<group>"; };
 		215A93041F9DD863005E32AA /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Note.swift; path = Models/Note.swift; sourceTree = "<group>"; };
+		2189940B1FB464310017B5D9 /* AddEventForClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddEventForClass.swift; path = Controllers/AddEventForClass.swift; sourceTree = "<group>"; };
 		219818411FB0462900CDC8A9 /* EventsForSingleClassController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventsForSingleClassController.swift; path = Controllers/EventsForSingleClassController.swift; sourceTree = "<group>"; };
 		219818431FB0464200CDC8A9 /* OverviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OverviewController.swift; path = Controllers/OverviewController.swift; sourceTree = "<group>"; };
 		21F2B7F51E62828100B10E27 /* CalPolyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalPolyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -180,6 +184,8 @@
 				21F2B82B1E628AC800B10E27 /* LoginViewController.swift */,
 				219818431FB0464200CDC8A9 /* OverviewController.swift */,
 				219818411FB0462900CDC8A9 /* EventsForSingleClassController.swift */,
+				2189940B1FB464310017B5D9 /* AddEventForClass.swift */,
+				2130A0281FB49054006E054E /* ControllerExtensions.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -505,6 +511,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2130A0291FB49054006E054E /* ControllerExtensions.swift in Sources */,
 				21F2B82C1E628AC800B10E27 /* LoginViewController.swift in Sources */,
 				21F2B7F91E62828100B10E27 /* AppDelegate.swift in Sources */,
 				21FC873B1E75DE6D00E00CE2 /* User.swift in Sources */,
@@ -514,6 +521,7 @@
 				219818421FB0462900CDC8A9 /* EventsForSingleClassController.swift in Sources */,
 				219818441FB0464200CDC8A9 /* OverviewController.swift in Sources */,
 				21F2B8351E62CFE400B10E27 /* ClassItem.swift in Sources */,
+				2189940C1FB464310017B5D9 /* AddEventForClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,7 +9,6 @@
 import Foundation
 
 class OverviewController : UITableViewController {
-   var user: User!
    let classListRef = FIRDatabase.database().reference(withPath: "User_Courses")
    var classes = [String]()
 

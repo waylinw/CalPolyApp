@@ -16,11 +16,22 @@ class EventsForSingleClassController : UITableViewController {
       self.title = className
    }
 }
+
 extension EventsForSingleClassController {
    @IBAction func cancelToSingleClassController(_ segue: UIStoryboardSegue) {}
    
    @IBAction func addEventToSingleClass(_ segue: UIStoryboardSegue) {
+      guard let addEventController = segue.source as? AddEventForClass,
+         let newEvent = addEventController.note else {
+            return
+      }
       
+      // Insert class to newEvent
+      
+      // Insert today's date to newEvent.
+      
+      // Insert the event into database.
+      
+      // setup auto update for changes in database.
    }
-   
 }
