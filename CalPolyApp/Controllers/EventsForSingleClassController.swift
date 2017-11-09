@@ -19,4 +19,8 @@ class EventsForSingleClassController : UITableViewController {
 extension EventsForSingleClassController {
    @IBAction func cancelToSingleClassController(_ segue: UIStoryboardSegue) {}
    
+   @IBAction func addEventToSingleClass(_ segue: UIStoryboardSegue) {
+      
+   }
+   
 }
