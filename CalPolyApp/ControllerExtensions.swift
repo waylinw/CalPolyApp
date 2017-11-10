@@ -23,9 +23,9 @@ extension UIViewController {
 extension String {
    func toBool() -> Bool? {
       switch self {
-      case "Yes":
+      case "Yes","True", "true":
          return true
-      case "No":
+      case "No", "False", "false":
          return false
       default:
          return nil

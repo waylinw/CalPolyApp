@@ -29,11 +29,8 @@ class AddEventForClass : UITableViewController, UITextViewDelegate {
          let eventNotes = EventNotes.text
          let isPublic = IsPublic.isOn
          let dueDate = EventDueDate.date
-//         let dateFormatter = DateFormatter()
-//         dateFormatter.dateFormat = "yyyy-MM-dd"
-//         let dueDate = dateFormatter.string(from: EventDueDate.date)
-         //initialize note
          
+         note = Note(isPublic: isPublic, title: title!, note: eventNotes!, dueDate: dueDate)
       }
    }
 

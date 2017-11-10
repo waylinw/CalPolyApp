@@ -10,10 +10,19 @@ import Foundation
 
 class EventsForSingleClassController : UITableViewController {
    var className : String = ""
+   var Note : [Note] = []
+   let noteRef = FIRDatabase.database().reference(withPath: "Notes")
+   let classForumRef = FIRDatabase.database().reference(withPath: "ClassNotes")
    
    override func viewDidLoad() {
       super.viewDidLoad()
       self.title = className
+      classForumRef.child(className).observe(.value, with: { snapshot in
+         // 3
+         for item in snapshot.children {
+            print(item)
+         }
+      })
    }
 }
 
@@ -26,12 +35,15 @@ extension EventsForSingleClassController {
             return
       }
       
-      // Insert class to newEvent
+      // Insert the event into Notes table.
+      let id = noteRef.childByAutoId().key
+      noteRef.child(id).setValue(newEvent.toAnyObject())
       
-      // Insert today's date to newEvent.
+      // Insert an entry into the ClassNotes Table
+      let vals :[String: Any] = ["ChildID": "None",
+                                 "IsPublic": newEvent.isPublic]
+      classForumRef.child(className).child(id).setValue(vals)
       
-      // Insert the event into database.
-      
-      // setup auto update for changes in database.
+      //
    }
 }
