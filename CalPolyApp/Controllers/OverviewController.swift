@@ -45,6 +45,17 @@ class OverviewController : UITableViewController {
       performSegue(withIdentifier: "ClassSelectedSegue", sender:indexPath.row)
    }
    
+   override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+      if editingStyle == .delete {
+         let ref = FIRDatabase.database().reference(withPath: "User_Courses").child(FIRAuth.auth()!.currentUser!.uid)
+         var tmpClasses = self.classes
+         tmpClasses = tmpClasses.filter(){$0 != tmpClasses[indexPath.row]}
+         ref.setValue(toAnyObject(classList: tmpClasses))
+         self.classes = []
+         self.tableView.reloadData()
+      }
+   }
+   
    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
       if segue.identifier == "ClassSelectedSegue" {
          let navC = segue.destination as? UINavigationController
@@ -59,6 +70,12 @@ class OverviewController : UITableViewController {
          let vc = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! CalPolyApp.LoginViewController
          self.present(vc, animated: true, completion: nil)
       }
+   }
+   
+   func toAnyObject(classList: [String]) -> Any {
+      return [
+         "Courses": classList
+      ]
    }
    
 }
