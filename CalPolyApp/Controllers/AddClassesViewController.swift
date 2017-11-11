@@ -25,6 +25,7 @@ UIPickerViewDelegate, UITableViewDataSource, UITableViewDelegate {
    var AllSectionsForClass : [ClassItem] = []
    
    var toAddFB = [String]()
+   var oldClasses = [String]()
    
    let overview = "overview"
    
@@ -47,6 +48,13 @@ UIPickerViewDelegate, UITableViewDataSource, UITableViewDelegate {
          }
          self.myDB[0] = Array(self.AllClassList.keys.sorted())
          self.classSelector.reloadAllComponents()
+      })
+
+      let classRef = FIRDatabase.database().reference(withPath: "User_Courses").child(FIRAuth.auth()!.currentUser!.uid)
+      classRef.observeSingleEvent(of: .value, with: {(snapshot) in
+         if let getData = snapshot.value as? [String:Any] {
+            (getData["Courses"]! as? [String])!.forEach{course in self.oldClasses.append(course)}
+         }
       })
    }
    
@@ -141,6 +149,7 @@ UIPickerViewDelegate, UITableViewDataSource, UITableViewDelegate {
    }
    
    func toAnyObject() -> Any {
+      toAddFB.append(contentsOf: oldClasses)
          return [
             "Courses": toAddFB
          ]
