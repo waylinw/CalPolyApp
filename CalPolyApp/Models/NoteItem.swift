@@ -10,11 +10,12 @@ import Foundation
 
 struct NoteItem {
    let note: Note
+   let latestText: String
    let replies: [Reply]
    
    init(note: Note) {
       self.note = note
+      latestText = ""
       replies = []
    }
-   
 }
