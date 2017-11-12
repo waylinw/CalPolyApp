@@ -125,17 +125,20 @@ UIPickerViewDelegate, UITableViewDataSource, UITableViewDelegate {
    }
    
    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+      tableView.deselectRow(at: indexPath, animated: true)
       guard let cell = tableView.cellForRow(at: indexPath) else { return }
       let sectionItem = cell.textLabel?.text?.components(separatedBy: " ")[1]
       let toInsert = deptSelected + " " + curCourseSelected + " " + sectionItem!
       
-      if cell.backgroundColor  == UIColor(red: 218/255.0, green: 218/255.0, blue: 218/255.0, alpha: 1.0) {
-         cell.backgroundColor = .white
-         toAddFB = toAddFB.filter(){$0 != toInsert}
-      }
-      else {
-         cell.backgroundColor = UIColor(red: 218/255.0, green: 218/255.0, blue: 218/255.0, alpha: 1.0)
-         toAddFB.append(toInsert)
+      if !(oldClasses.contains(toInsert)) {
+         if cell.backgroundColor  == UIColor(red: 218/255.0, green: 218/255.0, blue: 218/255.0, alpha: 1.0) {
+            cell.backgroundColor = .white
+            toAddFB = toAddFB.filter(){$0 != toInsert}
+         }
+         else {
+            cell.backgroundColor = UIColor(red: 218/255.0, green: 218/255.0, blue: 218/255.0, alpha: 1.0)
+            toAddFB.append(toInsert)
+         }
       }
    }
    
