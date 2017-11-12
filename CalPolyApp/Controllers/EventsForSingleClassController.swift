@@ -41,7 +41,8 @@ extension EventsForSingleClassController {
       
       // Insert an entry into the ClassNotes Table
       let vals :[String: Any] = ["ChildID": "None",
-                                 "IsPublic": newEvent.isPublic]
+                                 "IsPublic": newEvent.isPublic,
+                                 "UserID": FIRAuth.auth()!.currentUser!.uid]
       classForumRef.child(className).child(id).setValue(vals)
       
       //
