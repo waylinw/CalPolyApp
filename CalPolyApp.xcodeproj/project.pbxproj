@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0E14EED10B9D248A92175D11 /* Pods_CalPolyAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E619F94A8639A136FE509A24 /* Pods_CalPolyAppUITests.framework */; };
 		211C369F1FB7D2DD00805A16 /* TagPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211C369E1FB7D2DD00805A16 /* TagPickerViewController.swift */; };
+		212987971FBA438E00AEBF72 /* EventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212987961FBA438E00AEBF72 /* EventDetailsViewController.swift */; };
 		2130A0291FB49054006E054E /* ControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2130A0281FB49054006E054E /* ControllerExtensions.swift */; };
 		2130A02D1FB63F03006E054E /* NoteItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2130A02C1FB63F03006E054E /* NoteItem.swift */; };
 		2130A02F1FB63F0D006E054E /* Reply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2130A02E1FB63F0D006E054E /* Reply.swift */; };
@@ -51,6 +52,7 @@
 
 /* Begin PBXFileReference section */
 		211C369E1FB7D2DD00805A16 /* TagPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TagPickerViewController.swift; path = Controllers/TagPickerViewController.swift; sourceTree = "<group>"; };
+		212987961FBA438E00AEBF72 /* EventDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventDetailsViewController.swift; path = Controllers/EventDetailsViewController.swift; sourceTree = "<group>"; };
 		2130A0281FB49054006E054E /* ControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerExtensions.swift; sourceTree = "<group>"; };
 		2130A02C1FB63F03006E054E /* NoteItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoteItem.swift; path = Models/NoteItem.swift; sourceTree = "<group>"; };
 		2130A02E1FB63F0D006E054E /* Reply.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Reply.swift; path = Models/Reply.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				21F2B82D1E62AE6000B10E27 /* AddClassesViewController.swift */,
 				219818431FB0464200CDC8A9 /* OverviewController.swift */,
 				219818411FB0462900CDC8A9 /* EventsForSingleClassController.swift */,
+				212987961FBA438E00AEBF72 /* EventDetailsViewController.swift */,
 				2189940B1FB464310017B5D9 /* AddEventForClassController.swift */,
 				211C369E1FB7D2DD00805A16 /* TagPickerViewController.swift */,
 				2130A0281FB49054006E054E /* ControllerExtensions.swift */,
@@ -544,6 +547,7 @@
 				21F2B7F91E62828100B10E27 /* AppDelegate.swift in Sources */,
 				21FC873B1E75DE6D00E00CE2 /* User.swift in Sources */,
 				215A93051F9DD863005E32AA /* Note.swift in Sources */,
+				212987971FBA438E00AEBF72 /* EventDetailsViewController.swift in Sources */,
 				2130A02F1FB63F0D006E054E /* Reply.swift in Sources */,
 				21F2B8011E62828100B10E27 /* CalPolyApp.xcdatamodeld in Sources */,
 				2130A02D1FB63F03006E054E /* NoteItem.swift in Sources */,

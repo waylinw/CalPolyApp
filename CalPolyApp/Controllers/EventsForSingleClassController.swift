@@ -10,7 +10,6 @@ import Foundation
 
 class EventsForSingleClassController : UITableViewController {
    var className : String = ""
-   var Note1 : [Note] = []
    var noteItems : [NoteItem] = []
    let noteRef = FIRDatabase.database().reference(withPath: "Notes")
    let classForumRef = FIRDatabase.database().reference(withPath: "ClassNotes")
@@ -110,19 +109,17 @@ class EventsForSingleClassController : UITableViewController {
       return cell!
    }
    
-//   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//      // Waylin: i think you probably have to make an identifier for this segue in storyboard like you did for currenteventcells
-//      performSegue(withIdentifier: "EventSelectedSegue", sender:indexPath.row)
-//   }
-//
-//   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//      if segue.identifier == "EventSelectedSegue" {
-//         let navC = segue.destination as? UINavigationController
-//         // Waylin: Need to change the controller name here to for where you want to navigate to
-//         let vc = navC?.viewControllers.first as? RepliesForSingleClassController
-//         vc?.noteItem = noteItems[sender as! Int]
-//      }
-//   }
+   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+      // Waylin: i think you probably have to make an identifier for this segue in storyboard like you did for currenteventcells
+      performSegue(withIdentifier: "ViewDetailEvent", sender:indexPath.row)
+   }
+    
+   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+      if segue.identifier == "ViewDetailEvent" {
+        let vc = segue.destination as? EventDetailsViewController
+        vc?.currentNoteItem = noteItems[sender as! Int]
+      }
+   }
 }
 
 extension EventsForSingleClassController {

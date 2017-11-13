@@ -10,3 +10,4 @@
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
 #import <Firebase/Firebase.h>
+#import <JSQMessagesViewController/JSQMessages.h>
