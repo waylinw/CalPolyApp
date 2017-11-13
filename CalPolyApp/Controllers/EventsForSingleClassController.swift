@@ -77,7 +77,6 @@ class EventsForSingleClassController : UITableViewController {
                                     break
                                  }
                               }
-                              //(self.noteItems[self.noteItems.count - 1]).replies.append(Reply(snapshot: item as! FIRDataSnapshot))
                            }
                            self.tableView.reloadData()
                         }
