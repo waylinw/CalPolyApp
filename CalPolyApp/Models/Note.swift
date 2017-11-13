@@ -13,15 +13,17 @@ struct Note {
    let isPublic: Bool
    let title: String
    let note: String
+   let tag: String
    let dueDate: Date
    let createDate: Date
    let userID: String
    let dateFormatter: DateFormatter
    
-   init(isPublic: Bool, title: String, note: String, dueDate: Date) {
+   init(isPublic: Bool, title: String, note: String, dueDate: Date, tag: String) {
       self.isPublic = isPublic
       self.title = title
       self.note = note
+      self.tag = tag
       self.dueDate = dueDate
       self.noteID = ""
       self.userID = FIRAuth.auth()!.currentUser!.uid
@@ -37,6 +39,7 @@ struct Note {
       title = sv["Title"] as! String
       note = sv["Note"] as! String
       userID = sv["UserID"] as! String
+      tag = sv["Tag"] as! String
       
       dateFormatter = DateFormatter()
       dateFormatter.dateFormat = "yyyy-MM-dd"
@@ -49,6 +52,7 @@ struct Note {
          "IsPublic": isPublic,
          "Title": title,
          "Note": note,
+         "Tag": tag,
          "UserID": userID,
          "DueDate": dateFormatter.string(from: dueDate),
          "CreateDate": dateFormatter.string(from: createDate)

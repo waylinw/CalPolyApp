@@ -30,7 +30,7 @@ extension EventsForSingleClassController {
    @IBAction func cancelToSingleClassController(_ segue: UIStoryboardSegue) {}
    
    @IBAction func addEventToSingleClass(_ segue: UIStoryboardSegue) {
-      guard let addEventController = segue.source as? AddEventForClass,
+      guard let addEventController = segue.source as? AddEventForClassController,
          let newEvent = addEventController.note else {
             return
       }
