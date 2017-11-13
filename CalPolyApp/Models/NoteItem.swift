@@ -10,8 +10,8 @@ import Foundation
 
 struct NoteItem {
    let note: Note
-   let latestText: String
-   let replies: [Reply]
+   var latestText: String = ""
+   var replies: [Reply] = []
    
    init(note: Note) {
       self.note = note
