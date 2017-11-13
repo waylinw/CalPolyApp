@@ -35,7 +35,7 @@ struct Note {
    init(snapshot: FIRDataSnapshot) {
       noteID = snapshot.key
       let sv = snapshot.value as! [String: AnyObject]
-      isPublic = (sv["IsPublic"] as! String).toBool()!
+      isPublic = sv["IsPublic"]! as! Bool
       title = sv["Title"] as! String
       note = sv["Note"] as! String
       userID = sv["UserID"] as! String
