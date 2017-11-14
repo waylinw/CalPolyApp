@@ -83,7 +83,7 @@ class EventDetailsViewController: JSQMessagesViewController {
     {
         //insert into Reply
         let replyID = replyRef.childByAutoId().key
-        let replyInsert = Reply(note: text, parentID: (currentNoteItem?.note.noteID)!)
+        var replyInsert = Reply(note: text, parentID: (currentNoteItem?.note.noteID)!)
         replyRef.child(replyID).setValue(replyInsert.toAnyObject())
 
         
@@ -91,7 +91,8 @@ class EventDetailsViewController: JSQMessagesViewController {
         var childIDs = currentNoteItem?.replies.map {$0.replyID}
         childIDs?.append(replyID)
         classForumRef.child(className).child((currentNoteItem?.note.noteID)!).child("ChildID").setValue(childIDs)
-        
+      
+        replyInsert.replyID = replyID
         currentNoteItem?.replies.append(replyInsert)
         messages.append(JSQMessage(senderId: FIRAuth.auth()!.currentUser!.uid, senderDisplayName: "Me", date: replyInsert.createDate, text: replyInsert.note))
         finishSendingMessage()

@@ -13,7 +13,7 @@ struct Reply {
    let note: String
    let parentID: String
    let userID: String
-   let replyID: String
+   var replyID: String
    let dateFormatter: DateFormatter
    
    init(note: String, parentID: String) {
