@@ -94,24 +94,28 @@ class EventsForSingleClassController : UITableViewController {
                                  }
                               }
                            }
-                           self.tableView.reloadData()
+                           //self.tableView.reloadData()
                         }
-                        
                         // 3 arrays to sort here, the due dates array for section viewing, replies for each note, and the notes themselves
-                        self.noteItems.sort(by: {$0.note.dueDate.compare($1.note.dueDate) == .orderedAscending})
-                        for i in 0 ... self.noteItems.count - 1 {
-                           self.noteItems[i].replies = self.noteItems[i].replies.sorted(by: {$0.createDate.compare($1.createDate) == .orderedAscending})
-                        }
-                        self.dueDates.sort(by: {$0.compare($1) == .orderedAscending})
+                        self.sortArrays()
 
-                        self.tableView.reloadData()
+                        //self.tableView.reloadData()
                      })
                   }
+                  self.sortArrays()
                   self.tableView.reloadData()
                }
             }
          })
       })
+   }
+   
+   func sortArrays() {
+      self.noteItems.sort(by: {$0.note.dueDate.compare($1.note.dueDate) == .orderedAscending})
+      for i in 0 ... self.noteItems.count - 1 {
+         self.noteItems[i].replies = self.noteItems[i].replies.sorted(by: {$0.createDate.compare($1.createDate) == .orderedAscending})
+      }
+      self.dueDates.sort(by: {$0.compare($1) == .orderedAscending})
    }
    
    override func tableView(_ tableView: UITableView,
