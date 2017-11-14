@@ -36,7 +36,8 @@ class EventDetailsViewController: JSQMessagesViewController {
         collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
         
         //initial note
-        messages.append(JSQMessage(senderId: currentNoteItem?.note.userID, senderDisplayName: "Me", date: currentNoteItem?.note.createDate, text: currentNoteItem?.note.note))
+        let firstMsgName = currentNoteItem?.note.userID == senderId ? "Me" : currentNoteItem?.note.userID
+        messages.append(JSQMessage(senderId: currentNoteItem?.note.userID, senderDisplayName: firstMsgName, date: currentNoteItem?.note.createDate, text: currentNoteItem?.note.note))
         
         //rest of replies
         currentNoteItem?.replies.forEach({ (reply) in
@@ -50,6 +51,14 @@ class EventDetailsViewController: JSQMessagesViewController {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return messages.count
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = super.collectionView(collectionView, cellForItemAt: indexPath)
+            as! JSQMessagesCollectionViewCell
+        cell.textView!.font = UIFont.systemFont(ofSize: 18.0)
+        cell.textView!.textColor = UIColor.black
+        return cell
     }
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {
