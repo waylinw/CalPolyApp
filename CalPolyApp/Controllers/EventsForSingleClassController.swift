@@ -22,6 +22,7 @@ class EventsForSingleClassController : UITableViewController {
    override func viewDidLoad() {
       super.viewDidLoad()
       self.title = className
+      
       //first query classnotes
       classForumRef.child(className).observe(.value, with: { snapshot in
          for item in snapshot.children {
@@ -128,6 +129,30 @@ class EventsForSingleClassController : UITableViewController {
       if segue.identifier == "ViewDetailEvent" {
         let vc = segue.destination as? EventDetailsViewController
         vc?.currentNoteItem = noteItems[sender as! Int]
+      }
+   }
+   
+   override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+      if editingStyle == .delete {
+         
+         //only delete if event belongs to you
+         if FIRAuth.auth()!.currentUser!.uid == noteItems[indexPath.row].note.userID {
+            
+            //remove from all 3 tables
+            classForumRef.child(className).child(noteItems[indexPath.row].note.noteID).removeValue()
+            noteRef.child(noteItems[indexPath.row].note.noteID).removeValue()
+            for kid in noteItems[indexPath.row].replies {
+               replyRef.child(kid.replyID).removeValue()
+            }
+            
+            //reload the view
+            self.noteItems = []
+            self.validNoteIds = []
+            self.validChildIds = []
+            self.dueDates = []
+            self.sectionData = [:]
+            self.tableView.reloadData()
+         }
       }
    }
 }
