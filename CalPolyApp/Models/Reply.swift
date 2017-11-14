@@ -16,7 +16,7 @@ struct Reply {
    let replyID: String
    let dateFormatter: DateFormatter
    
-   init(note: String, parentID: String, sequenceID: String) {
+   init(note: String, parentID: String) {
       self.createDate = Date()
       self.note = note
       self.parentID = parentID

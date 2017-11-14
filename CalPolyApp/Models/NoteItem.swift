@@ -12,10 +12,12 @@ struct NoteItem {
    let note: Note
    var latestText: String = ""
    var replies: [Reply] = []
+   var childIDs: [String] = []
    
    init(note: Note) {
       self.note = note
       latestText = ""
       replies = []
+      childIDs = []
    }
 }

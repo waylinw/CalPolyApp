@@ -13,23 +13,35 @@ import JSQMessagesViewController
 class EventDetailsViewController: JSQMessagesViewController {
     var currentNoteItem: NoteItem?
     var messages = [JSQMessage]()
+    var className : String = ""
     lazy var outgoingBubble: JSQMessagesBubbleImage = {
         return JSQMessagesBubbleImageFactory()!.outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleBlue())
     }()
-    
     lazy var incomingBubble: JSQMessagesBubbleImage = {
         return JSQMessagesBubbleImageFactory()!.incomingMessagesBubbleImage(with: UIColor.jsq_messageBubbleLightGray())
     }()
     
+    let replyRef = FIRDatabase.database().reference(withPath: "Replies")
+    let classForumRef = FIRDatabase.database().reference(withPath: "ClassNotes")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = currentNoteItem?.note.title
         
-        senderId = currentNoteItem?.note.userID
+        senderId = FIRAuth.auth()!.currentUser!.uid
         senderDisplayName = "Me"
         
         inputToolbar.contentView.leftBarButtonItem = nil
         collectionView.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
         collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
+        
+        //initial note
+        messages.append(JSQMessage(senderId: currentNoteItem?.note.userID, senderDisplayName: "Me", date: currentNoteItem?.note.createDate, text: currentNoteItem?.note.note))
+        
+        //rest of replies
+        currentNoteItem?.replies.forEach({ (reply) in
+            messages.append(JSQMessage(senderId: reply.userID, senderDisplayName: reply.userID, date: reply.createDate, text: reply.note))
+        })
     }
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageDataForItemAt indexPath: IndexPath!) -> JSQMessageData! {
@@ -57,5 +69,22 @@ class EventDetailsViewController: JSQMessagesViewController {
     {
         return messages[indexPath.item].senderId == senderId ? 0 : 15
     }
+    
+    override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!)
+    {
+        //insert into Reply
+        let replyID = replyRef.childByAutoId().key
+        let replyInsert = Reply(note: text, parentID: (currentNoteItem?.note.noteID)!)
+        replyRef.child(replyID).setValue(replyInsert.toAnyObject())
 
+        
+        //update Main Note Object
+        var childIDs = currentNoteItem?.replies.map {$0.replyID}
+        childIDs?.append(replyID)
+        classForumRef.child(className).child((currentNoteItem?.note.noteID)!).child("ChildID").setValue(childIDs)
+        
+        currentNoteItem?.replies.append(replyInsert)
+        messages.append(JSQMessage(senderId: FIRAuth.auth()!.currentUser!.uid, senderDisplayName: "Me", date: replyInsert.createDate, text: replyInsert.note))
+        finishSendingMessage()
+    }
 }

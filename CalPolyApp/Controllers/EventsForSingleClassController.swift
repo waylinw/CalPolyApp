@@ -23,6 +23,7 @@ class EventsForSingleClassController : UITableViewController {
       self.title = className
       //first query classnotes
       classForumRef.child(className).observe(.value, with: { snapshot in
+         self.noteItems = []
          for item in snapshot.children {
             //get every attribute from json from db for use here
             var classNote = (item as? FIRDataSnapshot)?.value as! [String:Any]
@@ -44,7 +45,7 @@ class EventsForSingleClassController : UITableViewController {
             }
          }
          //second query here is to get notes
-         self.noteRef.observe(.value, with: { snapshot in
+        self.noteRef.observeSingleEvent(of: .value, with: { snapshot in
             for item in snapshot.children {
                let noteId = (item as? FIRDataSnapshot)?.key as! String
                
@@ -64,7 +65,7 @@ class EventsForSingleClassController : UITableViewController {
                   //third sub query is for replies table of db
                   //we have access to noteId so get corresponding list of children (replies) for that note and loop through them to add to our noteItems
                   for kid in self.validChildIds[self.validNoteIds.index(of: noteId)!] {
-                     self.replyRef.observe(.value, with: { snapshot in
+                    self.replyRef.observeSingleEvent(of: .value, with: { snapshot in
                         for item in snapshot.children {
                            let replyId = (item as? FIRDataSnapshot)?.key as! String
                            
@@ -118,6 +119,7 @@ class EventsForSingleClassController : UITableViewController {
       if segue.identifier == "ViewDetailEvent" {
         let vc = segue.destination as? EventDetailsViewController
         vc?.currentNoteItem = noteItems[sender as! Int]
+        vc?.className = self.className
       }
    }
 }
@@ -140,6 +142,5 @@ extension EventsForSingleClassController {
                                  "IsPublic": newEvent.isPublic,
                                  "UserID": FIRAuth.auth()!.currentUser!.uid]
       classForumRef.child(className).child(id).setValue(vals)
-      
    }
 }
