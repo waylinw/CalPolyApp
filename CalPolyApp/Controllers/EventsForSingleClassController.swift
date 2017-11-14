@@ -17,6 +17,7 @@ class EventsForSingleClassController : UITableViewController {
    var validNoteIds : [String] = []
    var validChildIds = [[String]]()
    var dueDates = [String]()
+   var sectionData: [String: [NoteItem]] = [:]
    
    override func viewDidLoad() {
       super.viewDidLoad()
@@ -51,6 +52,16 @@ class EventsForSingleClassController : UITableViewController {
                //append a new noteItem with note we just grabbed from db if it is in the list of validNoteIds
                if self.validNoteIds.contains(noteId) {
                   self.noteItems.append(NoteItem(note: Note(snapshot: item as! FIRDataSnapshot)))
+                  
+                  //here we want to set the latestText field of the noteItem
+                  if self.noteItems[self.noteItems.count - 1].note.title.count <= 40 {
+                     self.noteItems[self.noteItems.count - 1].latestText = self.noteItems[self.noteItems.count - 1].note.title
+                  }
+                  
+                  else {
+                     let idx = self.noteItems[self.noteItems.count - 1].note.title.index(self.noteItems[self.noteItems.count - 1].note.title.startIndex, offsetBy: 40)
+                     self.noteItems[self.noteItems.count - 1].latestText = self.noteItems[self.noteItems.count - 1].note.title.substring(to: idx)
+                  }
                   
                   //we need unique for the sectionViewer so grab it from the note and only add to array if it does not already contain that date
                   let formatter = DateFormatter()
@@ -105,12 +116,11 @@ class EventsForSingleClassController : UITableViewController {
    override func tableView(_ tableView: UITableView,
                           cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       let cell = tableView.dequeueReusableCell(withIdentifier: "CurrentEventCells")
-      cell?.textLabel?.text = noteItems[indexPath.row].note.title
+      cell?.textLabel?.text = noteItems[indexPath.row].latestText
       return cell!
    }
    
    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-      // Waylin: i think you probably have to make an identifier for this segue in storyboard like you did for currenteventcells
       performSegue(withIdentifier: "ViewDetailEvent", sender:indexPath.row)
    }
     
