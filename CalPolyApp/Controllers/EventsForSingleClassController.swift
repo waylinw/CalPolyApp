@@ -42,6 +42,10 @@ class EventsForSingleClassController : UITableViewController {
             if pub || id == FIRAuth.auth()!.currentUser!.uid {
                //keeping 2 arrays here; one is for all valid noteIds that are public or belong to logged in user
                //the other array is a 2d array with each sub-array being the list of children (replies) for all posts visible to logged in user
+                if let oldIdx = self.validNoteIds.index(of: noteId) {
+                    self.validNoteIds.remove(at: oldIdx)
+                    self.validChildIds.remove(at: oldIdx)
+                }
                self.validNoteIds.append(noteId)
                self.validChildIds.append(childs)
             }

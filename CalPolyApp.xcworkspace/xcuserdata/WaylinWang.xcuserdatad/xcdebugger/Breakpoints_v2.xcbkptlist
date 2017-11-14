@@ -6,11 +6,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CalPolyApp/Controllers/EventsForSingleClassController.swift"
-            timestampString = "532358185.440028"
+            timestampString = "532359555.146176"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "23"
@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CalPolyApp/Controllers/EventDetailsViewController.swift"
-            timestampString = "532358185.440384"
+            timestampString = "532359555.146592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "84"
@@ -42,7 +42,7 @@
                   moduleName = "CalPolyApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/WaylinWang/Desktop/SeniorProject/CalPolyApp/CalPolyApp/Controllers/EventDetailsViewController.swift"
-                  timestampString = "532358185.467821"
+                  timestampString = "532359555.180956"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "84"
@@ -57,7 +57,7 @@
                   moduleName = "CalPolyApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/WaylinWang/Desktop/SeniorProject/CalPolyApp/CalPolyApp/Controllers/EventDetailsViewController.swift"
-                  timestampString = "532358185.470553"
+                  timestampString = "532359555.18324"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "84"
@@ -70,15 +70,79 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CalPolyApp/Controllers/EventsForSingleClassController.swift"
-            timestampString = "532358190.458473"
+            timestampString = "532359555.146649"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "27"
             endingLineNumber = "27"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CalPolyApp.EventsForSingleClassController.viewDidLoad() -&gt; ()"
+                  moduleName = "CalPolyApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/WaylinWang/Desktop/SeniorProject/CalPolyApp/CalPolyApp/Controllers/EventsForSingleClassController.swift"
+                  timestampString = "532359555.194139"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "260">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__ObjC.FIRDataSnapshot) -&gt; () in CalPolyApp.EventsForSingleClassController.viewDidLoad() -&gt; ()"
+                  moduleName = "CalPolyApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/WaylinWang/Desktop/SeniorProject/CalPolyApp/CalPolyApp/Controllers/EventsForSingleClassController.swift"
+                  timestampString = "532359555.197316"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "131">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CalPolyApp/Controllers/EventsForSingleClassController.swift"
+            timestampString = "532359555.147161"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CalPolyApp/Controllers/EventsForSingleClassController.swift"
+            timestampString = "532359555.147407"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
