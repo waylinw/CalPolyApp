@@ -151,5 +151,11 @@ extension EventsForSingleClassController {
                                  "UserID": FIRAuth.auth()!.currentUser!.uid]
       classForumRef.child(className).child(id).setValue(vals)
       
+      //reset arrays to avoid duplicate listings of events
+      noteItems = []
+      validNoteIds = []
+      validChildIds = []
+      dueDates = []
+      sectionData = [:]
    }
 }
