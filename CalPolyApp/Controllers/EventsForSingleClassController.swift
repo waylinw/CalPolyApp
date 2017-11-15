@@ -67,9 +67,9 @@ class EventsForSingleClassController : UITableViewController {
                      }
                      let formatter = DateFormatter()
                      formatter.dateFormat = "yyyy-MM-dd"
-                     let myDate = formatter.string(from: Note(snapshot: item as! FIRDataSnapshot).dueDate)
-                     if !self.dueDates.contains(myDate) {
-                        self.dueDates.append(myDate)
+                     let dueDateTag = formatter.string(from: curNoteItem.note.dueDate) + self.dayDifference(from: curNoteItem.note.dueDate)
+                     if !self.dueDates.contains(dueDateTag) {
+                        self.dueDates.append(dueDateTag)
                      }
                      
                      for item1 in snapshot.children {
@@ -83,11 +83,11 @@ class EventsForSingleClassController : UITableViewController {
                      curNoteItem.replies = curNoteItem.replies.sorted(by: {$0.createDate.compare($1.createDate) == .orderedAscending})
                      self.dueDates.sort(by: {$0.compare($1) == .orderedAscending})
                      
-                     if self.sectionData[formatter.string(from: curNoteItem.note.dueDate)] == nil {
-                        self.sectionData[formatter.string(from: curNoteItem.note.dueDate)] = [curNoteItem]
+                     if self.sectionData[dueDateTag] == nil {
+                        self.sectionData[dueDateTag] = [curNoteItem]
                      }
                      else {
-                        self.sectionData[formatter.string(from: curNoteItem.note.dueDate)]?.append(curNoteItem)
+                        self.sectionData[dueDateTag]?.append(curNoteItem)
                      }
                      
                      self.tableView.reloadData()
@@ -96,6 +96,20 @@ class EventsForSingleClassController : UITableViewController {
             }
          })
       })
+   }
+   
+   func dayDifference(from date : Date) -> String
+   {
+      let calendar = NSCalendar.current
+      if calendar.isDateInToday(date) { return " - Due Today" }
+      else {
+         let startOfNow = calendar.startOfDay(for: Date())
+         let startOfTimeStamp = calendar.startOfDay(for: date)
+         let components = calendar.dateComponents([.day], from: startOfNow, to: startOfTimeStamp)
+         let day = components.day!
+         if day > 0 { return " - Due in \(day) day(s)" }
+      }
+      return ""
    }
    
    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

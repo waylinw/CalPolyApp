@@ -19,6 +19,7 @@ class LoginViewController: UIViewController {
    
    override func viewDidLoad() {
       super.viewDidLoad()
+      self.view.backgroundColor = UIColor(patternImage: UIImage(named: "Background")!)
       FIRAuth.auth()!.addStateDidChangeListener() { auth, user in
          if let user = user {
             FIRDatabase.database().reference(withPath: "User_Courses")

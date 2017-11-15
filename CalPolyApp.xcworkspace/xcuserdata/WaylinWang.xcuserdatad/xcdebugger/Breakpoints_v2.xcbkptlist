@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CalPolyApp/Controllers/EventsForSingleClassController.swift"
-            timestampString = "532411122.066306"
+            timestampString = "532440543.976014"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "23"
@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CalPolyApp/Controllers/EventsForSingleClassController.swift"
-            timestampString = "532411122.066806"
+            timestampString = "532440543.976117"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "27"
@@ -74,7 +74,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CalPolyApp/Controllers/EventsForSingleClassController.swift"
-            timestampString = "532411122.067131"
+            timestampString = "532440543.976198"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "55"
@@ -89,22 +89,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CalPolyApp/Controllers/EventsForSingleClassController.swift"
-            timestampString = "532411122.067411"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "CalPolyApp/Controllers/EventDetailsViewController.swift"
             timestampString = "532411548.453867"
             startingColumnNumber = "9223372036854775807"
@@ -113,20 +97,52 @@
             endingLineNumber = "85"
             landmarkName = "didPressSend(_:withMessageText:senderId:senderDisplayName:date:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CalPolyApp.EventDetailsViewController.didPressSend(Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UIButton&gt;, withMessageText: Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, senderId: Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, senderDisplayName: Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, date: Swift.ImplicitlyUnwrappedOptional&lt;Foundation.Date&gt;) -&gt; ()"
+                  moduleName = "CalPolyApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/WaylinWang/Desktop/SeniorProject/CalPolyApp/CalPolyApp/Controllers/EventDetailsViewController.swift"
+                  timestampString = "532440544.142397"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
+                  offsetFromSymbolStart = "526">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CalPolyApp.EventDetailsViewController.didPressSend(Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UIButton&gt;, withMessageText: Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, senderId: Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, senderDisplayName: Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, date: Swift.ImplicitlyUnwrappedOptional&lt;Foundation.Date&gt;) -&gt; ()"
+                  moduleName = "CalPolyApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/WaylinWang/Desktop/SeniorProject/CalPolyApp/CalPolyApp/Controllers/EventDetailsViewController.swift"
+                  timestampString = "532440544.144734"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
+                  offsetFromSymbolStart = "8237">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CalPolyApp/Controllers/EventsForSingleClassController.swift"
-            timestampString = "532411151.307454"
+            timestampString = "532440543.976273"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
             landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
          </BreakpointContent>
