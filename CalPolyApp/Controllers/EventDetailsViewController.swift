@@ -56,7 +56,6 @@ class EventDetailsViewController: JSQMessagesViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = super.collectionView(collectionView, cellForItemAt: indexPath)
             as! JSQMessagesCollectionViewCell
-        cell.textView!.font = UIFont.systemFont(ofSize: 18.0)
         cell.textView!.textColor = UIColor.black
         return cell
     }
