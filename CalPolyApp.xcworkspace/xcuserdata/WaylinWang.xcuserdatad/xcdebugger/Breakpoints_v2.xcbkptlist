@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CalPolyApp/Controllers/EventsForSingleClassController.swift"
-            timestampString = "532440543.976014"
+            timestampString = "532440725.617798"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "23"
@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CalPolyApp/Controllers/EventsForSingleClassController.swift"
-            timestampString = "532440543.976117"
+            timestampString = "532440725.618326"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "27"
@@ -74,7 +74,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CalPolyApp/Controllers/EventsForSingleClassController.swift"
-            timestampString = "532440543.976198"
+            timestampString = "532440725.618779"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "55"
@@ -138,13 +138,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CalPolyApp/Controllers/EventsForSingleClassController.swift"
-            timestampString = "532440543.976273"
+            timestampString = "532440725.619078"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "143"
             endingLineNumber = "143"
-            landmarkName = "prepare(for:sender:)"
-            landmarkType = "7">
+            landmarkName = "EventsForSingleClassController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
