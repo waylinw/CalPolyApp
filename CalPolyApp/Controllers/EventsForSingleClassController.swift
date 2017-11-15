@@ -10,7 +10,6 @@ import Foundation
 
 class EventsForSingleClassController : UITableViewController {
    var className : String = ""
-   var noteItems : [NoteItem] = []
    let noteRef = FIRDatabase.database().reference(withPath: "Notes")
    let classForumRef = FIRDatabase.database().reference(withPath: "ClassNotes")
    let replyRef = FIRDatabase.database().reference(withPath: "Replies")
@@ -25,7 +24,8 @@ class EventsForSingleClassController : UITableViewController {
       
       //first query classnotes
       classForumRef.child(className).observe(.value, with: { snapshot in
-         self.noteItems = []
+         self.sectionData = [:]
+         self.dueDates = []
          for item in snapshot.children {
             //get every attribute from json from db for use here
             var classNote = (item as? FIRDataSnapshot)?.value as! [String:Any]
@@ -46,117 +46,104 @@ class EventsForSingleClassController : UITableViewController {
                     self.validNoteIds.remove(at: oldIdx)
                     self.validChildIds.remove(at: oldIdx)
                 }
+               
                self.validNoteIds.append(noteId)
                self.validChildIds.append(childs)
             }
          }
          //second query here is to get notes
-        self.noteRef.observeSingleEvent(of: .value, with: { snapshot in
+         self.noteRef.observeSingleEvent(of: .value, with: { snapshot in
             for item in snapshot.children {
                let noteId = (item as? FIRDataSnapshot)?.key as! String
-               
-               //append a new noteItem with note we just grabbed from db if it is in the list of validNoteIds
                if self.validNoteIds.contains(noteId) {
-                  self.noteItems.append(NoteItem(note: Note(snapshot: item as! FIRDataSnapshot)))
-                  
-                  //here we want to set the latestText field of the noteItem
-                  if self.noteItems[self.noteItems.count - 1].note.title.count <= 40 {
-                     self.noteItems[self.noteItems.count - 1].latestText = self.noteItems[self.noteItems.count - 1].note.title
-                  }
-                  
-                  else {
-                     let idx = self.noteItems[self.noteItems.count - 1].note.title.index(self.noteItems[self.noteItems.count - 1].note.title.startIndex, offsetBy: 40)
-                     self.noteItems[self.noteItems.count - 1].latestText = self.noteItems[self.noteItems.count - 1].note.title.substring(to: idx)
-                  }
-                  
-                  //we need unique for the sectionViewer so grab it from the note and only add to array if it does not already contain that date
-                  let formatter = DateFormatter()
-                  formatter.dateFormat = "yyyy-MM-dd"
-                  let myDate = formatter.string(from: Note(snapshot: item as! FIRDataSnapshot).dueDate)
-                  
-                  if !self.dueDates.contains(myDate) {
-                     self.dueDates.append(myDate)
-                  }
-                  
-                  //third sub query is for replies table of db
-                  //we have access to noteId so get corresponding list of children (replies) for that note and loop through them to add to our noteItems
-                  for kid in self.validChildIds[self.validNoteIds.index(of: noteId)!] {
-                    self.replyRef.observeSingleEvent(of: .value, with: { snapshot in
-                        for item in snapshot.children {
-                           let replyId = (item as? FIRDataSnapshot)?.key as! String
-                           
-                           //so look at every single reply and if one matches the one we are currently looking for add it to replies array
+                  self.replyRef.observeSingleEvent(of: .value, with: { snapshot in
+                     var curNoteItem = NoteItem(note: Note(snapshot: item as! FIRDataSnapshot))
+                     // still gotta append this noteItem though
+                     if curNoteItem.note.title.count <= 40 {
+                        curNoteItem.latestText = curNoteItem.note.title
+                     }
+                     else {
+                        curNoteItem.latestText = curNoteItem.note.title.substring(to: curNoteItem.note.title.index(curNoteItem.note.title.startIndex, offsetBy: 40))
+                     }
+                     let formatter = DateFormatter()
+                     formatter.dateFormat = "yyyy-MM-dd"
+                     let myDate = formatter.string(from: Note(snapshot: item as! FIRDataSnapshot).dueDate)
+                     if !self.dueDates.contains(myDate) {
+                        self.dueDates.append(myDate)
+                     }
+                     
+                     for item1 in snapshot.children {
+                        let replyId = (item1 as? FIRDataSnapshot)?.key as! String
+                        for kid in self.validChildIds[self.validNoteIds.index(of: noteId)!] {
                            if replyId == kid {
-                              for i in 0 ... self.noteItems.count - 1 {
-                                 if self.noteItems[i].note.noteID == Reply(snapshot: item as! FIRDataSnapshot).parentID {
-                                    (self.noteItems[i]).replies.append(Reply(snapshot: item as! FIRDataSnapshot))
-                                    break
-                                 }
-                              }
+                              curNoteItem.replies.append(Reply(snapshot: item1 as! FIRDataSnapshot))
                            }
-                           //self.tableView.reloadData()
                         }
-                        // 3 arrays to sort here, the due dates array for section viewing, replies for each note, and the notes themselves
-                        self.sortArrays()
-
-                        //self.tableView.reloadData()
-                     })
-                  }
-                  self.sortArrays()
-                  self.tableView.reloadData()
+                     }
+                     curNoteItem.replies = curNoteItem.replies.sorted(by: {$0.createDate.compare($1.createDate) == .orderedAscending})
+                     self.dueDates.sort(by: {$0.compare($1) == .orderedAscending})
+                     
+                     if self.sectionData[formatter.string(from: curNoteItem.note.dueDate)] == nil {
+                        self.sectionData[formatter.string(from: curNoteItem.note.dueDate)] = [curNoteItem]
+                     }
+                     else {
+                        self.sectionData[formatter.string(from: curNoteItem.note.dueDate)]?.append(curNoteItem)
+                     }
+                     
+                     self.tableView.reloadData()
+                  })
                }
             }
          })
       })
    }
    
-   func sortArrays() {
-      self.noteItems.sort(by: {$0.note.dueDate.compare($1.note.dueDate) == .orderedAscending})
-      for i in 0 ... self.noteItems.count - 1 {
-         self.noteItems[i].replies = self.noteItems[i].replies.sorted(by: {$0.createDate.compare($1.createDate) == .orderedAscending})
-      }
-      self.dueDates.sort(by: {$0.compare($1) == .orderedAscending})
-   }
-   
-   override func tableView(_ tableView: UITableView,
-                           numberOfRowsInSection section: Int) -> Int {
-      return noteItems.count
+   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+      return sectionData[dueDates[section]]!.count
    }
 
-   override func tableView(_ tableView: UITableView,
-                          cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       let cell = tableView.dequeueReusableCell(withIdentifier: "CurrentEventCells")
-      cell?.textLabel?.text = noteItems[indexPath.row].latestText
+      cell?.textLabel?.text = sectionData[dueDates[indexPath.section]]![indexPath.row].latestText
       return cell!
    }
    
+   override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+      return dueDates[section]
+   }
+   
+   override func numberOfSections(in tableView: UITableView) -> Int {
+      return dueDates.count
+   }
+   
    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-      performSegue(withIdentifier: "ViewDetailEvent", sender:indexPath.row)
+      performSegue(withIdentifier: "ViewDetailEvent", sender:[indexPath.section, indexPath.row])
    }
     
    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
       if segue.identifier == "ViewDetailEvent" {
-        let vc = segue.destination as? EventDetailsViewController
-        vc?.currentNoteItem = noteItems[sender as! Int]
-        vc?.className = self.className
+         let section = (sender as! [Int])[0]
+         let row = (sender as! [Int])[1]
+         let vc = segue.destination as? EventDetailsViewController
+         vc?.currentNoteItem = sectionData[dueDates[section]]![row]
+         vc?.className = self.className
       }
    }
    
    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
       if editingStyle == .delete {
-         
+         let noteItemTmp = sectionData[dueDates[indexPath.section]]![indexPath.row]
          //only delete if event belongs to you
-         if FIRAuth.auth()!.currentUser!.uid == noteItems[indexPath.row].note.userID {
+         if FIRAuth.auth()!.currentUser!.uid == noteItemTmp.note.userID {
             
             //remove from all 3 tables
-            classForumRef.child(className).child(noteItems[indexPath.row].note.noteID).removeValue()
-            noteRef.child(noteItems[indexPath.row].note.noteID).removeValue()
-            for kid in noteItems[indexPath.row].replies {
+            classForumRef.child(className).child(noteItemTmp.note.noteID).removeValue()
+            noteRef.child(noteItemTmp.note.noteID).removeValue()
+            for kid in noteItemTmp.replies {
                replyRef.child(kid.replyID).removeValue()
             }
             
             //reload the view
-            self.noteItems = []
             self.validNoteIds = []
             self.validChildIds = []
             self.dueDates = []
