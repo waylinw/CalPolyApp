@@ -23,7 +23,9 @@ class EventsForSingleClassController : UITableViewController {
       self.title = className
       
       //first query classnotes
+      //notice we use observe here instead of observesingleevent so it gets run at each change of firebase db
       classForumRef.child(className).observe(.value, with: { snapshot in
+         //reset these arays each run to prevent dup values
          self.sectionData = [:]
          self.dueDates = []
          for item in snapshot.children {
@@ -42,6 +44,7 @@ class EventsForSingleClassController : UITableViewController {
             if pub || id == FIRAuth.auth()!.currentUser!.uid {
                //keeping 2 arrays here; one is for all valid noteIds that are public or belong to logged in user
                //the other array is a 2d array with each sub-array being the list of children (replies) for all posts visible to logged in user
+               //first remove old indices and then add new ones
                 if let oldIdx = self.validNoteIds.index(of: noteId) {
                     self.validNoteIds.remove(at: oldIdx)
                     self.validChildIds.remove(at: oldIdx)
@@ -51,20 +54,27 @@ class EventsForSingleClassController : UITableViewController {
                self.validChildIds.append(childs)
             }
          }
-         //second query here is to get notes
+         //second query here is to get notes and is only run once, immediately
+         //note that firebase queries make use of callbacks that get run in different threads that are guaranteed to run after data is fetched
+         //so code after the callback may get run before code inside the callback (even if the callback is at an earlier point in the program)
          self.noteRef.observeSingleEvent(of: .value, with: { snapshot in
+            
             for item in snapshot.children {
+               //key returned from the note from Notes table we will need this throughout
                let noteId = (item as? FIRDataSnapshot)?.key as! String
+               //we only want to display validposts which are ones that are either public or private and created by cur user
                if self.validNoteIds.contains(noteId) {
+                  //another query here to get replies
                   self.replyRef.observeSingleEvent(of: .value, with: { snapshot in
                      var curNoteItem = NoteItem(note: Note(snapshot: item as! FIRDataSnapshot))
-                     // still gotta append this noteItem though
+                     // we only want first 40 characters of title in order to make sure it fits on screen, cut off rest and save to latestText, which gets displayed
                      if curNoteItem.note.title.count <= 40 {
                         curNoteItem.latestText = curNoteItem.note.title
                      }
                      else {
                         curNoteItem.latestText = curNoteItem.note.title.substring(to: curNoteItem.note.title.index(curNoteItem.note.title.startIndex, offsetBy: 40))
                      }
+                     //due dates is used by sortedData for displaying sections, and contains only unique values
                      let formatter = DateFormatter()
                      formatter.dateFormat = "yyyy-MM-dd"
                      let myDate = formatter.string(from: Note(snapshot: item as! FIRDataSnapshot).dueDate)
@@ -72,6 +82,7 @@ class EventsForSingleClassController : UITableViewController {
                         self.dueDates.append(myDate)
                      }
                      
+                     //append all replies to currentNoteItem that it should have
                      for item1 in snapshot.children {
                         let replyId = (item1 as? FIRDataSnapshot)?.key as! String
                         for kid in self.validChildIds[self.validNoteIds.index(of: noteId)!] {
@@ -80,16 +91,17 @@ class EventsForSingleClassController : UITableViewController {
                            }
                         }
                      }
+                     //need replies sorted by creation date and due dates sorted as well
                      curNoteItem.replies = curNoteItem.replies.sorted(by: {$0.createDate.compare($1.createDate) == .orderedAscending})
                      self.dueDates.sort(by: {$0.compare($1) == .orderedAscending})
                      
+                     //save current curNoteItem to sectionData
                      if self.sectionData[formatter.string(from: curNoteItem.note.dueDate)] == nil {
                         self.sectionData[formatter.string(from: curNoteItem.note.dueDate)] = [curNoteItem]
                      }
                      else {
                         self.sectionData[formatter.string(from: curNoteItem.note.dueDate)]?.append(curNoteItem)
                      }
-                     
                      self.tableView.reloadData()
                   })
                }
@@ -97,6 +109,7 @@ class EventsForSingleClassController : UITableViewController {
          })
       })
    }
+   
    
    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
       return sectionData[dueDates[section]]!.count
