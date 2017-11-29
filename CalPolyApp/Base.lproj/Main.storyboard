@@ -241,7 +241,7 @@
         <scene sceneID="QWU-aU-SFF">
             <objects>
                 <tableViewController id="NIv-29-mVn" userLabel="Class Detail View" customClass="EventsForSingleClassController" customModule="CalPolyApp" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="fLk-Da-yTZ">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="fLk-Da-yTZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -290,6 +290,7 @@
                     </navigationItem>
                     <connections>
                         <segue destination="IYN-v0-Ft9" kind="show" identifier="ViewDetailEvent" id="cRv-St-ybU"/>
+                        <segue destination="cj4-eK-UVO" kind="show" identifier="EditEvent" id="fea-we-PSz"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DB0-BO-NfH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -457,12 +458,23 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="CeP-DF-FUu" kind="unwind" unwindAction="cancelToSingleClassController:" id="UxQ-iU-fau"/>
+                                    <segue destination="CeP-DF-FUu" kind="unwind" identifier="" unwindAction="cancelToSingleClassController:" id="UxQ-iU-fau"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="Zbp-G1-Ghj">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="jd0-FO-UIg" userLabel="Done">
+                                <rect key="frame" x="322" y="7" width="37" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <segue destination="CeP-DF-FUu" kind="unwind" identifier="FinishEditEvent" unwindAction="editEventForSingleClass:" id="u9u-gu-S8H"/>
                                 </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="CreateButton" destination="PDk-bm-Ekb" id="2J6-DJ-Oy0"/>
                         <outlet property="EventDueDate" destination="1Fs-J9-a08" id="k66-hn-MJn"/>
                         <outlet property="EventNotes" destination="cFj-BS-4Vh" id="PS4-zX-F8K"/>
                         <outlet property="EventTitle" destination="csI-oO-izt" id="Mm9-iU-LbC"/>
@@ -591,7 +603,8 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="TUZ-3D-uj3"/>
-        <segue reference="gAB-c3-pz9"/>
+        <segue reference="ffA-SF-JXH"/>
+        <segue reference="fea-we-PSz"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

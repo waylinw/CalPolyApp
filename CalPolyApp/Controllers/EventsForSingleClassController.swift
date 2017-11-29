@@ -147,25 +147,39 @@ class EventsForSingleClassController : UITableViewController {
     
    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
       if segue.identifier == "ViewDetailEvent" {
+         let vc = segue.destination as? EventDetailsViewController
          let section = (sender as! [Int])[0]
          let row = (sender as! [Int])[1]
-         let vc = segue.destination as? EventDetailsViewController
          vc?.currentNoteItem = sectionData[dueDates[section]]![row]
          vc?.className = self.className
       }
+      else if segue.identifier == "EditEvent" {
+         let navC = segue.destination as? UINavigationController
+         let vc = navC?.viewControllers.first as? AddEventForClassController
+         let section = (sender as! [Int])[0]
+         let row = (sender as! [Int])[1]
+         vc?.editNoteItem = sectionData[dueDates[section]]![row]
+      }
    }
    
-   override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-      if editingStyle == .delete {
-         let noteItemTmp = sectionData[dueDates[indexPath.section]]![indexPath.row]
-         //only delete if event belongs to you
-         if FIRAuth.auth()!.currentUser!.uid == noteItemTmp.note.userID {
-            
+   override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+      
+      let noteItemTmp = self.sectionData[self.dueDates[indexPath.section]]![indexPath.row]
+      //only show edit options if event belongs to you
+      if FIRAuth.auth()!.currentUser!.uid == noteItemTmp.note.userID {
+         // action one
+         let editAction = UITableViewRowAction(style: .default, title: "Edit", handler: { (action, indexPath) in
+            self.performSegue(withIdentifier: "EditEvent", sender:[indexPath.section, indexPath.row])
+         })
+         editAction.backgroundColor = UIColor.blue
+         
+         // action two
+         let deleteAction = UITableViewRowAction(style: .default, title: "Delete", handler: { (action, indexPath) in
             //remove from all 3 tables
-            classForumRef.child(className).child(noteItemTmp.note.noteID).removeValue()
-            noteRef.child(noteItemTmp.note.noteID).removeValue()
+            self.classForumRef.child(self.className).child(noteItemTmp.note.noteID).removeValue()
+            self.noteRef.child(noteItemTmp.note.noteID).removeValue()
             for kid in noteItemTmp.replies {
-               replyRef.child(kid.replyID).removeValue()
+               self.replyRef.child(kid.replyID).removeValue()
             }
             
             //reload the view
@@ -174,8 +188,12 @@ class EventsForSingleClassController : UITableViewController {
             self.dueDates = []
             self.sectionData = [:]
             self.tableView.reloadData()
-         }
+         })
+         deleteAction.backgroundColor = UIColor.red
+         
+         return [editAction, deleteAction]
       }
+      return []
    }
 }
 
@@ -197,5 +215,26 @@ extension EventsForSingleClassController {
                                  "IsPublic": newEvent.isPublic,
                                  "UserID": FIRAuth.auth()!.currentUser!.uid]
       classForumRef.child(className).child(id).setValue(vals)
+   }
+   
+   @IBAction func editEventForSingleClass(_ segue: UIStoryboardSegue) {
+      guard let addEventController = segue.source as? AddEventForClassController,
+         let editedNoteItem:NoteItem = addEventController.editNoteItem else {
+            return
+      }
+      
+      print(editedNoteItem)
+      
+      //need to reconstruct the db updates from the NoteItem
+      
+      // Insert the event into Notes table.
+//      let id = noteRef.childByAutoId().key
+//      noteRef.child(id).setValue(newEvent.toAnyObject())
+      
+      // Insert an entry into the ClassNotes Table
+//      let vals :[String: Any] = ["ChildID": ["None"],
+//                                 "IsPublic": newEvent.isPublic,
+//                                 "UserID": FIRAuth.auth()!.currentUser!.uid]
+//      classForumRef.child(className).child(id).setValue(vals)
    }
 }

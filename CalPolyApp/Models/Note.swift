@@ -10,11 +10,11 @@ import Foundation
 
 struct Note {
    let noteID: String
-   let isPublic: Bool
-   let title: String
-   let note: String
-   let tag: String
-   let dueDate: Date
+   var isPublic: Bool
+   var title: String
+   var note: String
+   var tag: String
+   var dueDate: Date
    let createDate: Date
    let userID: String
    let dateFormatter: DateFormatter

@@ -9,7 +9,7 @@
 import Foundation
 
 struct NoteItem {
-   let note: Note
+   var note: Note
    var latestText: String = ""
    var replies: [Reply] = []
    
